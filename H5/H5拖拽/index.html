@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body  ondrop="dors(event)" ondragover="allowDrop(event)">
+<style type="text/css" media="screen">
+	.box{
+		width: 300px;
+		height: 300px;
+		border: 1px solid red;
+		float: left;
+	}
+	.box>img{
+		width: 100%;
+		height: auto;
+	}
+</style>
+	<div id="box" class="box" ondrop="dors(event)" ondragover="allowDrop(event)">	
+	</div>
+	<div id="box1" class="box" ondrop="dors(event)" ondragover="allowDrop(event)">	
+	</div>
+	<div id="box2" class="box" ondrop="dors(event)" ondragover="allowDrop(event)">	
+	</div>
+	<div id="box3" class="box" ondrop="dors(event)" ondragover="allowDrop(event)">	
+	</div>
+	<div id="box4" class="box" ondrop="dors(event)" ondragover="allowDrop(event)">	
+	</div>
+	<img id="img" src="1.jpg" alt="" draggable="true" ondragstart="dor(event)">
+</body>
+<script type="text/javascript">
+function dor(ev){
+	ev.dataTransfer.setData("Text",ev.target.id);//第一个参数是一个名字，待将元素放到一个地方时需要一样的第二个是获取元素id名
+}
+function dors(ev){
+	event.preventDefault()
+	var data=ev.dataTransfer.getData("Text");
+	ev.target.appendChild(document.getElementById(data));
+}
+function allowDrop(ev)
+{
+	ev.preventDefault();
+}
+</script>
+</html>
